@@ -3,10 +3,7 @@
 
 ----
 
- call:
-```MATLAB
-[SubPlotHandleArray, options] = LinkedMontage( ImCell, TitleStrArray, options )
-```
+ call: ```[SubPlotHandleArray, options] = LinkedMontage( ImCell, TitleStrArray, options )```
 
 ---
 
