@@ -37,3 +37,8 @@ Function also returns the handles to all the subplots, so user can change proper
 ## Output: 
 * **SubPlotHandleArray**: Array of axes objects. Each corrosponds to the input image with the same index.
 * **options**: The same as input options. Returns the configurations that the function used.
+
+---
+View my file in MATLAB's File Exchange:
+
+[![View LinkedMontage on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/80976-linkedmontage)
