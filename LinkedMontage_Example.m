@@ -37,6 +37,7 @@ disp(options.FigureHandle.Name)
 % zoom in to see the effect of linkaxes():  % can also be done manually:
 FirstImageAxes = SubPlotHandleArray(1);
 zoom(FirstImageAxes,5);
+
 %% Linked Montage with extra options:
 % override the existing built-in montage figure called "FigH_builtin" by using the "FigureHandle" option.
 % Force all images to be in one row using the "Layout" option.
@@ -48,10 +49,19 @@ HSV = rgb2hsv(OriginalImage);
 SaturationImage = HSV(:,:,2);
 EdgeImage = edge(GrayImage,'canny');
 
-LinkedMontage( {OriginalImage   , GrayImage   , SaturationImage   } , ...
+[SubPlotHandleArray , options] = LinkedMontage( {OriginalImage   , GrayImage   , SaturationImage   } , ...
                ["Original Image", "Gray Image", "Saturation Image"] , ...
                "FigureHandle" , FigH_builtin , ...
                "Layout" , [ 1 , nan]                               );
+           
+%% add a Global Title:
+GlobalTitleH = sgtitle(options.FigureHandle , "Corn Linked Montage Example ");  
+GlobalTitleH.FontSize = 20; % Make this titles larger:
+% Make subplots' titles larger:
+for i = 1 : length(SubPlotHandleArray)
+    subplotH = SubPlotHandleArray(i);
+    subplotH.FontSize = 18;
+end
 %% Linked Montage with extra options:
 % Force a 2 by 2 grid using the "Layout" option.
 % Turn Off Linked axes using the "LinkedAxes" , "off" option.
@@ -67,5 +77,4 @@ figure(); % new figure this time...
 ThirdImageAxes = SubPlotHandleArray(3);
 zoom(ThirdImageAxes,5);
 
-%% add a Global Title::                        
-sgtitle(options.FigureHandle , "Corn Linked Montage Example ");                      
+   
